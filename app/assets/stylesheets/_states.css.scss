@@ -1,0 +1,33 @@
+.is-right-aligned {
+  float: right;
+}
+
+.is-left-aligned {
+  float: left;
+}
+
+.is-centered {
+  display: block;
+  float: none;
+  margin: 0 auto;
+}
+
+.is-centered-text {
+  text-align: center;
+}
+
+.is-left-text {
+  text-align: left;
+}
+
+.is-right-text {
+  text-align: right;
+}
+
+.is-abs-left {
+  left: 0;
+}
+
+.is-abs-right {
+  right: 0;
+}

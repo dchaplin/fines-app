@@ -1,0 +1,32 @@
+# == Schema Information
+#
+# Table name: fines
+#
+#  id          :integer          not null, primary key
+#  date        :datetime
+#  description :text
+#  status      :string(255)
+#  amount      :integer
+#  offender_id :integer
+#  proposer_id :integer
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  date: 2013-11-19 16:14:59
+  description: MyText
+  status: MyString
+  amount: 1
+  offender_id: 1
+  proposed_by_id: 1
+
+two:
+  date: 2013-11-19 16:14:59
+  description: MyText
+  status: MyString
+  amount: 1
+  offender_id: 1
+  proposed_by_id: 1

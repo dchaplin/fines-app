@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fines</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <section class="profile-bar-section">
+    <div class="container">
+      <%= image_tag('logo.png') %>
+      <div class="login-info is-right-aligned">
+        <% if logged_in? %>
+          <%= link_to image_tag('edit-icon.png', :size => '16x16'), edit_user_path(@current_user), :class => "no-hover" %>
+          <%= current_user.username %>
+          <%= link_to "(Logout)", logout_path, :method => :delete %>
+        <% else %>
+          <%= link_to "Login", login_path %>
+        <% end %>
+      </div>
+    </div>
+  </section>
+  
+<%= yield %>
+
+</body>
+</html>

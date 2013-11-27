@@ -1,0 +1,80 @@
+// Place all the styles related to the Fines controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.new-fine {
+}
+
+.fine-section {
+  margin-bottom: 15px;
+
+  .fine-list {    
+    border-right: 1px solid #FFFBEE;
+    
+    .fine-list-heading-bar {
+      padding-top: 40px;
+      border-bottom: 1px solid #B8B8B8;
+      margin-bottom: 20px;
+    }
+
+    .fine-heading {
+      font-family: 'Rokkitt', serif;
+      font-size: 40px;
+      color: #022f45; 
+    }
+
+    .fine {
+      border: 1px solid #E8E8E8;
+      background-color: #FBFBFB;  
+      margin-bottom: 12px;
+    
+      .offender-row {
+        background-color: #E9E9E9;
+        margin: 0 auto;
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+        .offender {
+          color: #850E11;
+          font-size: 1.71em;
+          padding-right: 10px;
+        }
+      }
+    }
+  }
+}
+
+.date {
+  font-style: italic;
+  padding-left: 10px;
+}
+
+.amount {
+  font-size: 20px;
+  padding-top: 10px;
+}
+
+.description {
+  font-size: 16px;
+}
+
+.fine-links {
+  margin-left: 5px;
+}
+
+.thumbs-adjustment {
+  padding-top: 2px;
+  padding-left: 3px;
+}
+
+.bottom-row {
+  padding-left: 20px;
+  padding-bottom: 6px;
+  padding-right: 10px;
+}
+
+.fine-info-row {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 6px;
+}

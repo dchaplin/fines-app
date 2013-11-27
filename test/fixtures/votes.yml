@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: votes
+#
+#  id         :integer          not null, primary key
+#  voter_id   :integer
+#  fine_id    :integer
+#  value      :boolean
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  voter_id: 1
+  fine_id: 1
+  vote_value: false
+
+two:
+  voter_id: 1
+  fine_id: 1
+  vote_value: false

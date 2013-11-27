@@ -1,0 +1,58 @@
+<div class="fine">  
+  <div class="offender-row row">
+    <div class="col-md-6">
+      <span class="offender"><%= fine.offender.username %> </span>
+    </div>
+    <div class="col-md-6 is-right-text">
+      Proposed By: <%= fine.proposer.username %>
+      <% if logged_in? && is_admin? %>
+        <span class="fine-links">
+          <%= link_to image_tag('edit-icon.png', :size => '16x16'), edit_fine_path(fine), :class => "no-hover" %>
+          <%= link_to image_tag('delete-icon.png', :size => '16x16'), fine, method: :delete, data: { confirm: 'Are you sure?' }, :class => "no-hover" %>  
+        </span>
+      <% end %>
+    </div>
+  </div>
+  <div class="fine-info-row row">
+    <div class="col-md-11">
+      <span class="date"> <%= fine.date.to_date %> </span>
+      <div class="description is-centered-text">
+        "<%= fine.description %>"
+      </div>
+    </div>
+    <div class="col-md-1 amount is-right-text">
+      R<%= fine.amount %>
+    </div>
+  </div>
+  <div class="bottom-row row padding-left">
+    <div class="col-md-8">
+      Status: <%= fine.status %>
+    </div>
+    <div class="col-md-4 is-right-text">
+      Yes: <%= fine.number_of_yes_votes %>
+      No: <%= fine.number_of_no_votes %>
+      <% if logged_in? %>        
+        <span class="fine-links">
+          <% if current_user.voted?(fine) %>
+            <% if current_user.voted_yes?(fine) %>        
+              <%= image_tag('thumbs-up-grey.png', :size => '16x16') %>
+              <div class="thumbs-adjustment is-right-aligned">
+                <%= link_to image_tag('thumbs-down.png', :size => '16x16'), down_fine_votes_path(fine), :class => "no-hover" %>
+              </div>                        
+            <% else %>
+              <%= link_to image_tag('thumbs-up.png', :size => '16x16'), up_fine_votes_path(fine), :class => "no-hover" %>
+              <div class="thumbs-adjustment is-right-aligned">
+                <%= image_tag('thumbs-down-grey.png', :size => '16x16') %>
+              </div> 
+            <% end %>
+          <% else %> 
+            <%= link_to image_tag('thumbs-up.png', :size => '16x16'), up_fine_votes_path(fine), :class => "no-hover" %>
+            <div class="thumbs-adjustment is-right-aligned">
+              <%= link_to image_tag('thumbs-down.png', :size => '16x16'), down_fine_votes_path(fine), :class => "no-hover" %>
+            </div>             
+          <% end %>
+        </span>
+      <% end %>
+    </div>
+  </div>
+</div>

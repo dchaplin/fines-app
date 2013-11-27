@@ -1,0 +1,41 @@
+<%= form_for(@fine) do |f| %>
+  <% if @fine.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@fine.errors.count, "error") %> prohibited this fine from being saved:</h2>
+
+      <ul>
+      <% @fine.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :date %><br>
+    <%= Date.today %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br>
+    Pending
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br>
+    R<%= Fine::FINE_AMOUNT %>
+  </div>
+  <div class="field">
+    <%= f.label :offender_id %><br>
+    <%= f.collection_select :offender_id, @users, :id, :username , include_blank: true %>
+  </div>
+  <div class="field">
+    <%= f.label :proposer_id %><br>
+    <%= f.collection_select :proposer_id, @users, :id ,:username , include_blank: true %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

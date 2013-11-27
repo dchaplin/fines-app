@@ -1,0 +1,30 @@
+<section class="container fine-section">
+  <div class="col-md-10 fine-list"> 
+    <div class="fine-list-heading-bar">
+      <span class="fine-heading">Fines</span>
+      <div class="is-right-aligned new-fine"> 
+        <% if logged_in? %>          
+          <%= link_to image_tag('icon-add.png'), new_fine_path, :class => "no-hover" %>
+          Propose fine
+        <% end %>
+      </div>    
+    </div>
+    <% @fines.each do |fine| %>
+      <%= render(fine) %>
+    <% end %>    
+  </div>
+  <div class="col-md-2 user-list">
+    <h2>The Team:</h2>
+    <% @users.each do |user| %>
+    <div class="user-line">
+      <%= user.username %>
+    </div>
+    <% end %>
+    <% if logged_in? && is_admin? %>
+      <span class="is-right-aligned"><%= link_to 'Edit', users_path %></span>
+    <% end %>
+  </div>      
+</section>
+
+
+
