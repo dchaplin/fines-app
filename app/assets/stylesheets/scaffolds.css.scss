@@ -1,6 +1,6 @@
 body {
-  background: url('bg-tile-light.jpg');
-  color: #333;
+  background: white;
+  color: #2d5a8b;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
@@ -16,17 +16,6 @@ pre {
   background-color: #eee;
   padding: 10px;
   font-size: 11px;
-}
-
-a {
-  color: #000;
-  &:visited {
-    color: #666;
-  }
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
 }
 
 div {
