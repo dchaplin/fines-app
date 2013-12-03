@@ -1,9 +1,15 @@
-<div class="col-md-2 user-list">
-  <h2>User List:</h2>
-  <%= render (@users) %>
-  <div class="user-list-controls">
-    <span class="is-right-aligned"><%= link_to 'New User', new_user_path %></span>
-    <%= link_to 'Back', fines_path %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 is-centered user-list">
+      <h2>User List:</h2>
+      <% @users.each do |user| %>
+        <%= render(user) %>
+      <% end %>
+      <div class="user-list-controls">
+        <span class="is-right-aligned"><%= link_to 'New User', new_user_path %></span>
+        <%= link_to 'Back', fines_path %>
+      </div>
+    </div>
   </div>
-</div> 
+</div>
 

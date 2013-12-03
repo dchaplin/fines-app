@@ -3,59 +3,58 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .new-fine {
+  height: 30px;
 }
 
 .fine-section {
   margin-bottom: 15px;
+  padding-top: 20px;
+  
+  .fine-heading {
+      font-family: 'Roboto Condensed', sans-serif;
+      font-size: 40px;
+      color: #2d5a8b; 
+    }
 
   .fine-list {    
-    border-right: 1px solid #FFFBEE;
-    
-    .fine-list-heading-bar {
-      padding-top: 40px;
-      border-bottom: 1px solid #B8B8B8;
-      margin-bottom: 20px;
-    }
-
-    .fine-heading {
-      font-family: 'Rokkitt', serif;
-      font-size: 40px;
-      color: #022f45; 
-    }
 
     .fine {
       border: 1px solid #E8E8E8;
       background-color: #FBFBFB;  
-      margin-bottom: 12px;
-    
+      margin-bottom: 20px;
+      padding: 10px;
+
       .offender-row {
-        background-color: #E9E9E9;
         margin: 0 auto;
         padding-top: 10px;
         padding-bottom: 10px;
 
         .offender {
-          color: #850E11;
-          font-size: 1.71em;
-          padding-right: 10px;
+          color: #2d5a8b;
+          font-size: 24px;
         }
       }
     }
   }
 }
 
+.proposer {
+  color: #454147;
+}
+
 .date {
   font-style: italic;
-  padding-left: 10px;
 }
 
 .amount {
-  font-size: 20px;
-  padding-top: 10px;
+  font-size: 50px;
+  padding: 20px;
 }
 
 .description {
   font-size: 16px;
+  color: #a9a5aa;
+  padding-left: 6px;
 }
 
 .fine-links {
@@ -68,7 +67,7 @@
 }
 
 .bottom-row {
-  padding-left: 20px;
+  padding-left: 16px;
   padding-bottom: 6px;
   padding-right: 10px;
 }
@@ -78,3 +77,32 @@
   padding-right: 10px;
   padding-top: 6px;
 }
+
+/*
+* form
+*
+*/
+
+.edit-new-form {
+  border: 1px solid #E8E8E8;
+  background-color: #FBFBFB;  
+  padding-bottom: 30px;
+}
+
+.form-container {
+  width: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+.text-area {
+  width: 360px;
+  height: 100px;
+}
+
+.form-row {
+  padding-bottom: 15px;
+}
+
+
+

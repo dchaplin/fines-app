@@ -3,6 +3,7 @@
 <head>
   <title>Fines</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -10,11 +11,11 @@
   <section class="profile-bar-section">
     <div class="container">
       <%= image_tag('logo.png') %>
-      <div class="login-info is-right-aligned">
+      <div class="is-right-aligned">
         <% if logged_in? %>
           <%= link_to image_tag('edit-icon.png', :size => '16x16'), edit_user_path(@current_user), :class => "no-hover" %>
           <%= current_user.username %>
-          <%= link_to "(Logout)", logout_path, :method => :delete %>
+          <%= link_to "Logout", logout_path, :method => :delete, :class => "logout-link" %>
         <% else %>
           <%= link_to "Login", login_path %>
         <% end %>
