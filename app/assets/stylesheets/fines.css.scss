@@ -8,10 +8,9 @@
 
 .fine-section {
   margin-bottom: 15px;
-
+  padding-top: 20px;
+  
   .fine-heading {
-      padding-top: 40px;
-      margin-bottom: 20px;
       font-family: 'Roboto Condensed', sans-serif;
       font-size: 40px;
       color: #2d5a8b; 
@@ -24,35 +23,39 @@
       border: 1px solid #E8E8E8;
       background-color: #FBFBFB;  
       margin-bottom: 12px;
-    
+      padding: 10px;
+
       .offender-row {
-        background-color: #E9E9E9;
         margin: 0 auto;
         padding-top: 10px;
         padding-bottom: 10px;
 
         .offender {
           color: #2d5a8b;
-          font-size: 1.71em;
-          padding-right: 10px;
+          font-size: 24px;
         }
       }
     }
   }
 }
 
+.proposer {
+  color: #454147;
+}
+
 .date {
   font-style: italic;
-  padding-left: 10px;
 }
 
 .amount {
-  font-size: 20px;
-  padding-top: 10px;
+  font-size: 50px;
+  padding: 20px;
 }
 
 .description {
   font-size: 16px;
+  color: #a9a5aa;
+  padding-left: 6px;
 }
 
 .fine-links {
@@ -65,7 +68,7 @@
 }
 
 .bottom-row {
-  padding-left: 20px;
+  padding-left: 16px;
   padding-bottom: 6px;
   padding-right: 10px;
 }
@@ -75,3 +78,32 @@
   padding-right: 10px;
   padding-top: 6px;
 }
+
+/*
+* form
+*
+*/
+
+.edit-new-form {
+  border: 1px solid #E8E8E8;
+  background-color: #FBFBFB;  
+  padding-bottom: 30px;
+}
+
+.form-container {
+  width: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+.text-area {
+  width: 360px;
+  height: 100px;
+}
+
+.form-row {
+  padding-bottom: 15px;
+}
+
+
+

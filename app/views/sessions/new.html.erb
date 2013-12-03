@@ -3,19 +3,33 @@
     <p id="notice"><%= flash[:alert] %></p>
   <% end %>
   <%= form_tag do %>
-    <fieldset>
-      <legend>Please Log In</legend>
-      <div>
-        <%= label_tag :username, 'Username:' %>
-        <%= text_field_tag :username, params[:username] %>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 is-centered">
+          <fieldset>
+            <legend>Log In</legend>
+            <div class="row form-row">
+              <div class="col-md-8">
+                <%= label_tag :username, 'Username:' %>
+                <%= text_field_tag :username, params[:username], class: "text-field" %>
+              </div>
+            </div>
+            <div class="row form-row">
+              <div class="col-md-8">
+                <%= label_tag :password, 'Password:' %>
+                <%= password_field_tag :password, params[:password], class: "text-field"  %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <div class="is-right-aligned">
+                  <%= submit_tag "Login" %>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
       </div>
-      <div>
-        <%= label_tag :password, 'Password:' %>
-        <%= password_field_tag :password, params[:password] %>
-      </div>
-      <div>
-        <%= submit_tag "Login" %>
-      </div>
-    </fieldset>
+    </div>  
   <% end %>
 </div>
