@@ -11,6 +11,8 @@
 #
 
 class User < ActiveRecord::Base
+  class VotedAlready < StandardError; end
+
   has_many :votes, foreign_key: 'voter_id'
   has_many :fines, foreign_key: 'offender_id'
 
@@ -18,17 +20,21 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
-  scope :by_name, order(:username)
+  scope :by_name, ->{ order(:username) }
 
   def vote(fine, value)
-    vote = if voted?(fine)
-             votes.find_by_fine_id(fine.id)
-           else
-             Vote.new(fine_id: fine.id, voter_id: id)
-           end           
-
-    vote.value = value
-    vote.save
+    if voted?(fine) 
+      vote = votes.find_by_fine_id(fine.id)
+      if vote.value == value
+        raise VotedAlready.new("Voted #{value} already!")
+      else
+        vote.destroy
+      end
+    else
+      vote = Vote.new(fine_id: fine.id, voter_id: id)
+      vote.value = value
+      vote.save
+    end           
   end
 
   def voted?(fine, value=nil)

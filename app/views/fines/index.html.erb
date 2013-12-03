@@ -18,9 +18,9 @@
   <div class="col-md-2 user-list">
     <h2>The Team:</h2>
     <% @users.each do |user| %>
-    <div class="user-line">
-      <%= user.username %>
-    </div>
+      <div class="user-line">
+        <%= user.username %>
+      </div>
     <% end %>
     <% if logged_in? && is_admin? %>
       <span class="is-right-aligned"><%= link_to 'Edit', users_path, :class => "no-hover" %></span>
