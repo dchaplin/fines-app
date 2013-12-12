@@ -3,10 +3,10 @@
     <div class="col-md-6">
       <span class="offender">Offender: <%= fine.offender.username %></span>
     </div>
-    <div class="col-md-6 is-right-text">
+      <div class="col-md-6 is-right-text">
       Yes: <%= fine.number_of_yes_votes %>
       No: <%= fine.number_of_no_votes %>
-      <% if logged_in? %>        
+      <% if authorised?(VotesController, :up) %>       
         <span class="fine-links">
           <% if current_user.voted?(fine) %>
             <% if current_user.voted_yes?(fine) %>        
@@ -51,7 +51,7 @@
     </div>
     <div class="col-md-6 is-right-text">
       <div>
-        <% if logged_in? && is_admin? %>
+        <% if authorised?(FinesController, :edit) %>
           <span class="fine-links">
             <%= link_to image_tag('edit-icon.png', :size => '16x16'), edit_fine_path(fine), :class => "no-hover" %>
             <%= link_to image_tag('delete-icon.png', :size => '16x16'), fine, method: :delete, data: { confirm: 'Are you sure?' }, :class => "no-hover" %>  

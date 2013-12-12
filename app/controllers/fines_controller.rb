@@ -25,7 +25,7 @@ class FinesController < ApplicationController
   # POST /fines
   # POST /fines.json
   def create
-    @fine = Fine.new(fine_params.merge(:amount => 5, :date => Time.now, :status => "Pending"))
+    @fine = Fine.new(fine_params.merge(:amount => 5, :date => Time.now, :status => "Pending", :proposer_id => current_user.id))
     # raise fine_params.to_yaml
 
     if @fine.save
@@ -63,3 +63,4 @@ private
     @users = User.all.by_name
   end
 end
+

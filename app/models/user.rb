@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   scope :by_name, ->{ order(:username) }
 
   def vote(fine, value)
-    if voted?(fine) 
+    if voted?(fine)
       vote = votes.find_by_fine_id(fine.id)
       if vote.value == value
         raise VotedAlready.new("Voted #{value} already!")
@@ -37,8 +37,13 @@ class User < ActiveRecord::Base
     end           
   end
 
-  def voted?(fine, value=nil)
-    value ? votes.exists?(fine_id: fine.id, value: value) : votes.exists?(fine_id: fine.id)
+  def voted?(fine, value = nil)
+    if value      
+      votes.exists?(fine_id: fine.id, value: value) 
+    else
+      votes.exists?(fine_id: fine.id)
+    end
+    # value ? votes.exists?(fine_id: fine.id, value: value) : votes.exists?(fine_id: fine.id)
   end 
 
   def voted_yes?(fine)

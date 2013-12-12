@@ -9,7 +9,14 @@ Fines::Application.routes.draw do
     end
   end
 
-  resources :users
+  resources :users do 
+    collection do
+      get 'edit_profile', to: 'users#edit_own_profile', as: :edit_own_profile
+      patch 'update_profile', to: 'users#update_own_profile', as: :update_own_profile
+    end  
+  end
+
+  root :to => "fines#index"
 
   controller :sessions do
     get 'login' => :new

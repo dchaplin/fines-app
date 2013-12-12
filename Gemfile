@@ -45,6 +45,9 @@ gem 'annotate', ">=2.5.0"
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 
+# Using state_machine for the status of the fine
+gem 'state_machine'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
@@ -52,4 +55,4 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # gem 'capistrano', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'debugger', group: [:development, :test]

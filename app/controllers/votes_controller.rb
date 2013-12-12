@@ -41,12 +41,14 @@ class VotesController < ApplicationController
   # GET fines/:id/votes/up
   def up
     current_user.vote(@fine, true)
+    @fine.check_status
     redirect_to fines_url
   end
   
   # POST fines/:id/votes/down
   def down    
     current_user.vote(@fine, false)
+    @fine.check_status
     redirect_to fines_url
   end
 

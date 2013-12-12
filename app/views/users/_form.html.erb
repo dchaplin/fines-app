@@ -1,4 +1,4 @@
-<%= form_for(@user) do |f| %>
+<%= form_for @user, :url => update_own_profile_users_path do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
@@ -37,7 +37,7 @@
   <div class="row form-row">
     <div class="col-md-6">
       <div class="field">
-        <% if is_admin? %>
+        <% if authorised?(UsersController, :update) %>
           <%= f.label :admin, 'Admin' %>:
           <%= f.check_box :admin %>
         <% end %>

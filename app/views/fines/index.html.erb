@@ -5,7 +5,7 @@
   <div class="col-md-10 fine-list">
     <div class="new-fine">
       <div class="is-right-aligned"> 
-        <% if logged_in? %>          
+        <% if authorised?(FinesController, :new) %>
           <%= link_to image_tag('icon-add.png'), new_fine_path, :class => "no-hover" %>
           Propose fine
         <% end %>
@@ -22,7 +22,7 @@
         <%= user.username %>
       </div>
     <% end %>
-    <% if logged_in? && is_admin? %>
+    <% if authorised?(UsersController, :index) %>
       <span class="is-right-aligned"><%= link_to 'Edit', users_path, :class => "no-hover" %></span>
     <% end %>
   </div>      

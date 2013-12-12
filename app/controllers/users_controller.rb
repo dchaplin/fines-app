@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
+    #unauthorized! unless logged_in? 
     @users = User.by_name
   end
 
@@ -19,6 +20,11 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+  end
+
+  def edit_own_profile
+    @user = current_user
+    render 'edit'
   end
 
   # POST /users
@@ -41,7 +47,16 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to fines_url
     else
-      render action: 'edit'
+      render 'edit'
+    end
+  end
+
+  def update_own_profile
+    @user = current_user
+    if @user.update(user_params)
+      redirect_to fines_url
+    else
+      render 'edit'
     end
   end
 
@@ -60,6 +75,10 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:username, :password, :password_confirmation, :admin)
+      if authorised?(UsersController, params[:action].to_sym)
+        params.require(:user).permit(:username, :password, :password_confirmation, :admin)
+      else
+        params.require(:user).permit(:username, :password, :password_confirmation)
+      end
     end
 end

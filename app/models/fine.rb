@@ -22,12 +22,58 @@ class Fine < ActiveRecord::Base
 
   before_validation :set_fine_amount
 
+  state_machine :status, :initial => :Pending do
+    event :issue_fine do
+      transition [:Pending, :Rejected] => :Issued
+    end
+
+    event :reject_fine do
+      transition [:Pending, :Issued] => :Rejected
+    end
+
+    event :fine_paid do
+      transition :Issued => :Paid
+    end
+
+    event :reset do 
+      transition [:Issued, :Rejected] => :Pending
+    end
+  end
+
+  def initialize
+    super()
+  end
+
   def number_of_yes_votes
     votes.where(value: true).count
   end
 
   def number_of_no_votes
     votes.where(value: false).count
+  end
+
+  def number_of_votes
+    number_of_yes_votes + number_of_no_votes
+  end
+
+  def voting_complete?
+    number_of_yes_votes > (User.count / 2) || number_of_no_votes > (User.count / 2)
+  end
+
+  def voting_result_yes?
+    number_of_yes_votes > number_of_no_votes
+  end
+
+  def check_status
+    if voting_complete?
+      if voting_result_yes?
+        issue_fine
+      else
+        reject_fine
+      end
+    else
+      reset
+    end
   end
 
 private
